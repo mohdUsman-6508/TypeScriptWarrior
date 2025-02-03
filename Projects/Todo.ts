@@ -1,3 +1,5 @@
+"use strict";
+
 interface Task {
   id: number;
   description: string;
