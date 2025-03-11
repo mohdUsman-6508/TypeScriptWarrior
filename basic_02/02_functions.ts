@@ -21,3 +21,18 @@ sayGoodBye("Osman");
 const throwError = (error: string): never => {
   throw error;
 };
+
+const infoAboutString = (str: string): string => {
+  let len = str.length;
+  let vowLen = 0;
+  let strs = "aeiou";
+
+  for (let i = 0; i < str.length; i++) {
+    if (strs.indexOf(str.charAt(i)) != -1) {
+      vowLen += 1;
+    }
+  }
+  return `Your string is of length ${len} and it contains ${vowLen} vowels.`;
+};
+
+console.log(infoAboutString("hellooo"));

@@ -1,3 +1,4 @@
+"use strict";
 var Category;
 (function (Category) {
     Category["Food"] = "Food";
@@ -5,32 +6,31 @@ var Category;
     Category["Bills"] = "Bills";
     Category["Other"] = "Other";
 })(Category || (Category = {}));
-var ExpenseTracker = /** @class */ (function () {
-    function ExpenseTracker() {
+class ExpenseTracker {
+    constructor() {
         this.expenses = [];
         this.nextId = 1;
     }
-    ExpenseTracker.prototype.addExpense = function (description, amount, category) {
-        var newExpense = {
+    addExpense(description, amount, category) {
+        const newExpense = {
             id: this.nextId++,
-            description: description,
-            amount: amount,
-            category: category,
+            description,
+            amount,
+            category,
             date: new Date(),
         };
         this.expenses.push(newExpense);
         console.log("Expense added:", newExpense);
-    };
-    ExpenseTracker.prototype.removeExpense = function (expenseId) {
-        this.expenses = this.expenses.filter(function (exp) { return exp.id !== expenseId; });
-        console.log("Expense ".concat(expenseId, " removed."));
-    };
-    ExpenseTracker.prototype.listExpenses = function () {
+    }
+    removeExpense(expenseId) {
+        this.expenses = this.expenses.filter((exp) => exp.id !== expenseId);
+        console.log(`Expense ${expenseId} removed.`);
+    }
+    listExpenses() {
         console.log("Expenses:", this.expenses);
-    };
-    return ExpenseTracker;
-}());
-var tracker = new ExpenseTracker();
+    }
+}
+const tracker = new ExpenseTracker();
 tracker.addExpense("Lunch", 15.5, Category.Food);
 tracker.addExpense("Bus Ticket", 2.75, Category.Travel);
 tracker.listExpenses();

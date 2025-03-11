@@ -37,4 +37,9 @@ type Card = cardNumber &
 
 let creditCard: Card;
 
+const idArr: readonly number[] = [1, 2, 3];
+let newIdArr = [...idArr, 3, 4];
+
+//we cannot push the value in array which is readonly, however we can copy it existing value and add new value to it( ...spread[],newValue)
+
 export {};

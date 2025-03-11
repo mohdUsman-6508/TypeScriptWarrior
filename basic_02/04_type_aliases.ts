@@ -21,4 +21,22 @@ const createUser = (user: User): User => {
 
 createUser({ name: "osman", email: "abc@mail.com", id: 10 });
 
+type Point3D = {
+  x: number;
+  y: number;
+  z: number;
+};
+
+let p: Point3D = {
+  x: 2,
+  y: 3,
+  z: 0,
+};
+
+function getPosition(position: Point3D): string {
+  return `Aim at x:${position.x}, y:${position.y}, z:${position.z}`;
+}
+
+console.log(getPosition(p));
+
 export {};

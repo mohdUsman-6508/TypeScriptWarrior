@@ -1,35 +1,35 @@
-var TodoList = /** @class */ (function () {
-    function TodoList() {
+"use strict";
+class TodoList {
+    constructor() {
         this.tasks = [];
         this.nextId = 1;
     }
-    TodoList.prototype.addTask = function (description) {
-        var newTask = {
+    addTask(description) {
+        const newTask = {
             id: this.nextId++,
-            description: description,
+            description,
             completed: false,
         };
         this.tasks.push(newTask);
         console.log("Task added:", newTask);
-    };
-    TodoList.prototype.removeTask = function (taskId) {
-        this.tasks = this.tasks.filter(function (task) { return task.id !== taskId; });
-        console.log("Task ".concat(taskId, " removed."));
-    };
-    TodoList.prototype.markCompleted = function (taskId) {
-        this.tasks.map(function (task) {
+    }
+    removeTask(taskId) {
+        this.tasks = this.tasks.filter((task) => task.id !== taskId);
+        console.log(`Task ${taskId} removed.`);
+    }
+    markCompleted(taskId) {
+        this.tasks.map((task) => {
             if (task.id === taskId) {
                 task.completed = true;
-                console.log("Task ".concat(taskId, " marked as complete."));
+                console.log(`Task ${taskId} marked as complete.`);
             }
         });
-    };
-    TodoList.prototype.listTasks = function () {
+    }
+    listTasks() {
         console.log("Current Tasks:", this.tasks);
-    };
-    return TodoList;
-}());
-var todoList = new TodoList();
+    }
+}
+const todoList = new TodoList();
 todoList.addTask("Learn Angular");
 todoList.addTask("Review JS");
 todoList.addTask("Review TS");

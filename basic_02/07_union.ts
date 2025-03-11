@@ -28,5 +28,6 @@ let seat: "aisle" | "middle" | "side";
 // seat can only among aisle, middle, side
 
 seat = "aisle";
+// seat="window"; error
 
 export {};
